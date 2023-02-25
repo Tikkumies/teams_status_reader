@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import socket
 import threading
-import os
+from get_ip import get_network_adapters, parse_wlan_from_ifconfig
 
 relay1 = 37
 relay2 = 38
@@ -19,7 +19,8 @@ GPIO.output(relay3, GPIO.LOW)
 
 HEADER = 16
 PORT = 5050
-SERVER = "192.168.0.49"
+SERVER = parse_wlan_from_ifconfig(get_network_adapters())
+print(SERVER)
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
@@ -62,3 +63,8 @@ def start():
 if __name__ == "__main__":
     print("[STARTING] server is starting...")
     start()
+
+
+
+
+
