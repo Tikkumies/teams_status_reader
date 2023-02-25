@@ -20,7 +20,6 @@ GPIO.output(relay3, GPIO.LOW)
 HEADER = 16
 PORT = 5050
 SERVER = parse_wlan_from_ifconfig(get_network_adapters())
-print(SERVER)
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
